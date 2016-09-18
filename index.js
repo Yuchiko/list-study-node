@@ -40,28 +40,26 @@ app.post('/lists/', function(req, res) {
 
 	console.log(req.body.name);
 
-	db.findOne(
-		{ name: req.body.name },  
-		(list) => {
+	db.findOne({ name: req.body.name }, (list) => {
 
-			console.log(list);
-			
-			if(list) {
-				return res.status(409).send('List name duplicate')
+		console.log(list);
+		
+		if(list) {
+			return res.status(409).send('List name duplicate')
+		}
+
+		db.insertOne({
+			name: req.body.name,
+			items: []
+		}, (err, responce) => {
+			if(err) {
+				console.log(err);
+				return res.send('Error with db')
 			}
 
-			db.insertOne({
-				name: req.body.name,
-				items: []
-			}, (err, responce) => {
-				if(err) {
-					console.log(err);
-					return res.send('Error with db')
-				}
-
-				res.json(responce);
-			})
-		});
+			res.json(responce);
+		})
+	});
 });
 
 app.patch('/lists/:name/', function(req, res) {
@@ -84,7 +82,7 @@ app.patch('/lists/:name/', function(req, res) {
 		if(err) {
 			console.log(err);
 		}
-	
+		
 		res.json({
 			err:err,
 			res:result
