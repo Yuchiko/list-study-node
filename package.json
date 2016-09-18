@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/Yuchiko/list-study-node#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "lodash": "^4.15.0",
+    "mongodb": "^2.2.10"
   }
 }
