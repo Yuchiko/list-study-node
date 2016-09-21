@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Yuchiko/list-study-node/issues"
   },
-  "homepage": "https://github.com/Yuchiko/list-study-node#readme"
+  "homepage": "https://github.com/Yuchiko/list-study-node#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "lodash": "^4.15.0",
+    "mongodb": "^2.2.10"
+  }
 }
